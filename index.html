@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="jsfuck.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded",function(){
+                document.querySelector("button.translate").addEventListener("click",function(){
+                    let v=document.querySelector("textarea.input").value;
+                    let encoded=JSFuck.encode(v);
+                    encoded=encoded.replace(/\[/gi,(Math.random()>0.5)?"yeet":"yeeT");
+                    encoded=encoded.replace(/\]/gi,(Math.random()>0.5)?"yeEt":"yeET");
+                    encoded=encoded.replace(/\!/gi,(Math.random()>0.5)?"yEet":"yEeT");
+                    encoded=encoded.replace(/\+/gi,(Math.random()>0.5)?"yEET":"Yeet");
+                    encoded=encoded.replace(/\(/gi,(Math.random()>0.5)?"YeeT":"YeEt");
+                    encoded=encoded.replace(/\)/gi,(Math.random()>0.5)?"YeET":"YEet");
+                    encoded=encoded.replace(/(t)/gi,"$1 ");
+                    document.querySelector("textarea.output").value=encoded;
+                })
+                document.querySelector("button.execute").addEventListener("click",function(){
+                    let encoded=document.querySelector("textarea.output").value;
+                    encoded=encoded.replace(/yeet/g,"[");
+                    encoded=encoded.replace(/yeeT/g,"[");
+
+                    encoded=encoded.replace(/yeEt/g,"]");
+                    encoded=encoded.replace(/yeET/g,"]");
+
+                    encoded=encoded.replace(/yEet/g,"!");
+                    encoded=encoded.replace(/yEeT/g,"!");
+
+                    encoded=encoded.replace(/yEET/g,"+");
+                    encoded=encoded.replace(/Yeet/g,"+");
+
+                    encoded=encoded.replace(/YeeT/g,"(");
+                    encoded=encoded.replace(/YeEt/g,"(");
+
+                    encoded=encoded.replace(/YeET/g,")");
+                    encoded=encoded.replace(/YEet/g,")");
+                    encoded=encoded.replace(/ /gi,"");
+                    eval(eval(encoded));
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1>YEETCODE</h1>
+        <h2>The one Yeeternal standard. Turn your js into yeetcode today!</h2>
+        <textarea class="input" style="width:100%;height:30%;" placeholder="Normal JS (the inferior language)"></textarea> <br> 
+        <button class="translate">TRANSLATE</button>
+        <textarea class="output" style="width:100%;height:30%;" placeholder="Yeetcode (the one and only)"></textarea> <br>
+        <button class="execute">EXECUTE</button>
+    </body>
+</html>
